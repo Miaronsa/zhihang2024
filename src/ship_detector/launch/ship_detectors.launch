@@ -1,0 +1,24 @@
+<launch>
+    <!--启动launch-->
+    <include file="$(find yolov8_ros)/launch/yolo_v8.launch"/>
+
+    <!-- 启动节点1 -->
+    <node name="ship_detector" pkg="ship_detector" type="ship_detector" output="screen">
+    </node>
+
+    <node name="ship_lander" pkg="ship_detector" type="ship_lander" output="screen">
+    </node>
+
+    <node name="yolo_tracker" pkg="yolov8_ros" type="yolo_tracker" output="screen">
+    </node>
+
+    <node name="ship_tracker" pkg="ship_tracker" type="ship_tracker" output="screen">
+    </node>
+
+    <node name="ship_land_helper" pkg="ship_tracker" type="ship_land_helper" output="screen">
+    </node>
+
+    <node name="angle_tracker" pkg="angle_tracker" type="angle_tracker" output="screen">
+    </node>
+
+</launch>
